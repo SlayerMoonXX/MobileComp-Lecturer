@@ -2,16 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'student.dart';
-import 'page_three.dart';
 
 class PageTwo extends StatelessWidget {
-  // Menerima data melalui constructor
-  final Student student;
-
-  const PageTwo({super.key, required this.student});
+  // Constructor menjadi kosong tanpa parameter 'student'
+  const PageTwo({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Menangkap data 'student' dari arguments
+    final student = ModalRoute.of(context)!.settings.arguments as Student;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Profil Mahasiswa')),
       body: Padding(
@@ -20,15 +20,13 @@ class PageTwo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
-            // GestureDetector membuat gambar bisa ditekan
             GestureDetector(
               onTap: () {
-                // Navigasi ke Page 3, hanya mengirim URL foto
-                Navigator.push(
+                // Navigasi ke Page 3 menggunakan Named Route, hanya mengirim URL foto
+                Navigator.pushNamed(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => PageThree(imageUrl: student.imageUrl),
-                  ),
+                  '/page-three',
+                  arguments: student.imageUrl,
                 );
               },
               child: CircleAvatar(

@@ -1,12 +1,16 @@
+// File: lib/page_three.dart
+
 import 'package:flutter/material.dart';
 
 class PageThree extends StatelessWidget {
-  final String imageUrl;
-
-  const PageThree({super.key, required this.imageUrl});
+  // Constructor kosong
+  const PageThree({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Menangkap data 'imageUrl' (bertipe String) dari arguments
+    final imageUrl = ModalRoute.of(context)!.settings.arguments as String;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Foto Mahasiswa')),
       body: Center(
@@ -25,7 +29,7 @@ class PageThree extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
               ),
               onPressed: () {
-                // Menutup halaman satu per satu sampai bertemu halaman pertama (Page 1)
+                // Kembali langsung ke initialRoute ('/')
                 Navigator.popUntil(context, (route) => route.isFirst);
               },
               child: const Text(

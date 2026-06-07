@@ -1,17 +1,17 @@
+// File: lib/page_one.dart
+
 import 'package:flutter/material.dart';
 import 'student.dart';
-import 'page_two.dart';
 
 class PageOne extends StatelessWidget {
   const PageOne({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Dummy data minimal 4 item
     final List<Student> students = [
       Student(
         name: 'Andi Setiawan',
-        imageUrl: 'https://i.pravatar.cc/150?img=11',
+        imageUrl: 'https://i.pravatar.cc/150?img=11', 
         description: 'Mahasiswa Ilmu Komputer Universitas Cakrawala angkatan 2024. Aktif di BEM.',
       ),
       Student(
@@ -43,12 +43,11 @@ class PageOne extends StatelessWidget {
             ),
             title: Text(student.name),
             onTap: () {
-              // Navigasi ke Page 2 dan kirim data 'student' via konstruktor
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PageTwo(student: student),
-                ),
+              // Navigasi menggunakan Named Route dan mengirim arguments
+              Navigator.pushNamed(
+                context, 
+                '/page-two', 
+                arguments: student, // Data student diselipkan di sini
               );
             },
           );
