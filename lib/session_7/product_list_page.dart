@@ -75,7 +75,11 @@ class ProductListPage extends StatelessWidget {
           final product = products[index];
           return GestureDetector(
             onTap:() {
-              
+              Navigator.pushNamed(
+                context, 
+                '/product-detail', 
+                arguments: product, // kirim data produk ke halaman detail
+              );
             },
             child: Card(
               elevation: 4,
@@ -95,7 +99,7 @@ class ProductListPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          product.name,
+                          product.name, 
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(product.description),
