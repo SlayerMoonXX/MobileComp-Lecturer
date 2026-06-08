@@ -2,6 +2,7 @@ import 'package:flutter_application_1/session_7/checkout_page.dart';
 import 'package:flutter_application_1/session_7/product_detail_page.dart';
 import 'package:flutter_application_1/session_7/product_list_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/session_7/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,38 +41,25 @@ class HalamanUtama extends StatefulWidget {
 }
 
 class _HalamanUtamaState extends State<HalamanUtama> {
-  int counter = 0;
-  String pesan = 'Belum ditekan';
 
-  void tambah() {
+  int currentPosition = 0;
+
+  final List<Widget> _pages = [
+    ProductListPage(),
+    ProfilePage(),
+  ];
+
+  void _onTabTapped(int index) {
     setState(() {
-      counter++;
-      pesan = 'Sudah ditekan $counter kali';
+      currentPosition = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Belajar State'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              pesan,
-              style: const TextStyle(fontSize: 20),
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: tambah,
-              child: const Text('Tekan Saya'),
-            ),
-          ],
-        ),
-      ),
+      
     );
   }
+
 }
