@@ -2,7 +2,7 @@ import 'package:flutter_application_1/session_7/checkout_page.dart';
 import 'package:flutter_application_1/session_7/product_detail_page.dart';
 import 'package:flutter_application_1/session_7/product_list_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/session_7/profile_page.dart';
+import 'package:flutter_application_1/session_7/profile/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -58,7 +58,7 @@ class _HalamanUtamaState extends State<HalamanUtama> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+
     );
   }
 
